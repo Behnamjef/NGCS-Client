@@ -1,16 +1,21 @@
 {
-    "name": "com.incytel.ngcsclient",
-    "version": "0.0.1",
-    "displayName": "NGCS Client",
-    "description": "Complete package for incytel client games",
-    "unity": "2022.3",
-   "keywords": [
-      "NGCS",
-      "Client"
-    ],
-    "author": {
-      "name": "Incytel",
-      "email": "behnamjaffarii@gmail.com",
-      "url": "https://www.Incytel.com"
-    }
+  "name": "com.incytel.ngcsclient",
+  "version": "0.0.1",
+  "displayName": "NGCS Client",
+  "description": "Complete package for incytel client games",
+  "unity": "2022.3",
+  "dependencies": {
+    "jillejr.newtonsoft.json-for-unity": "10.0.302",
+    "com.google.external-dependency-manager": "1.2.172",
+    "com.gameanalytics.sdk": "7.6.2-b",
+  },
+  "keywords": [
+    "NGCS",
+    "Client"
+  ],
+  "author": {
+    "name": "Incytel",
+    "email": "behnamjaffarii@gmail.com",
+    "url": "https://www.Incytel.com"
   }
+}

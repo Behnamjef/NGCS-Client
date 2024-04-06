@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        package="ir.myket.soomla.sample"
+        android:installLocation="preferExternal"
+        android:versionCode="1"
+        android:versionName="1.0">
+
+    <supports-screens
+            android:smallScreens="true"
+            android:normalScreens="true"
+            android:largeScreens="true"
+            android:xlargeScreens="true"
+            android:anyDensity="true" />
+
+
+    <application android:icon="@drawable/app_icon" android:label="@string/app_name"
+                 android:debuggable="true" android:theme="@style/UnityThemeSelector">
+
+        <!--Firebase Messaging activity-->
+        <activity android:name="com.google.firebase.MessagingUnityPlayerActivity"
+                  android:label="@string/app_name"
+                  android:exported="true">
+
+            <intent-filter>
+
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+
+
+            <!--DeepLink-->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="hakemsho"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="hakemsho" android:host="joinroom"/>
+            </intent-filter>
+            
+            <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+
+            <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="false" />
+
+        </activity>
+        
+        <!--Firebase Messaging service-->
+        <service android:name="com.google.firebase.messaging.MessageForwardingService"
+                 android:permission="android.permission.BIND_JOB_SERVICE"
+                 android:exported="false">
+        </service>
+        
+        <!--Metrix-->
+        <meta-data
+                android:name="metrix_appId"
+                android:value="lwxquubmushsbsk" />
+        <meta-data
+                android:name="metrix_storeName"
+                android:value="myket" />
+        
+        <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+
+        <meta-data android:name="billing.service" android:value="myket.MyketIabService" />
+
+        <activity android:name="com.myket.MyketIABProxyActivity"
+                  android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+                  android:exported="true"/>
+
+
+        <receiver android:name="com.myket.util.IABReceiver" android:exported="true">
+
+            <intent-filter>
+
+                <action android:name="ir.mservices.market.ping" />
+
+                <action android:name="ir.mservices.market.purchase" />
+
+                <action android:name="ir.mservices.market.getPurchase" />
+
+                <action android:name="ir.mservices.market.billingSupport" />
+
+                <action android:name="ir.mservices.market.skuDetail" />
+
+                <action android:name="ir.mservices.market.consume" />
+
+            </intent-filter>
+
+        </receiver>
+
+
+    </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="ir.mservices.market.BILLING" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+    <queries>
+
+        <package android:name="ir.mservices.market" />
+
+        <intent>
+
+            <action android:name="ir.mservices.market.InAppBillingService.BIND" />
+
+            <data android:mimeType="*/*" />
+
+        </intent>
+
+    </queries>
+
+
+</manifest>

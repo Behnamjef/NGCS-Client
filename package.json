@@ -4,9 +4,6 @@
     "displayName": "NGCS Client",
     "description": "Complete package for incytel client games",
     "unity": "2022.3",
-    "dependencies": {
-      "com.google.external-dependency-manager": "1.2.172"
-   },
    "keywords": [
       "NGCS",
       "Client"
